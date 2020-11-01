@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgres"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -35,12 +35,4 @@ model Session {
   antiCSRFToken      String?
   publicData         String?
   privateData        String?
-}
-
-model Receipt {
-  id        Int      @default(autoincrement()) @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String
-  url       String
 }

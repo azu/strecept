@@ -1,8 +1,8 @@
-import { Link, BlitzPage, useMutation } from "blitz"
-import Layout from "app/layouts/Layout"
-import logout from "app/auth/mutations/logout"
-import { useCurrentUser } from "app/hooks/useCurrentUser"
-import { Suspense } from "react"
+import { Link, BlitzPage, useMutation } from "blitz";
+import Layout from "app/layouts/Layout";
+import logout from "app/auth/mutations/logout";
+import { useCurrentUser } from "app/hooks/useCurrentUser";
+import { Suspense } from "react";
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -10,8 +10,8 @@ import { Suspense } from "react"
  */
 
 const UserInfo = () => {
-  const currentUser = useCurrentUser()
-  const [logoutMutation] = useMutation(logout)
+  const currentUser = useCurrentUser();
+  const [logoutMutation] = useMutation(logout);
 
   if (currentUser) {
     return (
@@ -19,7 +19,7 @@ const UserInfo = () => {
         <button
           className="button small"
           onClick={async () => {
-            await logoutMutation()
+            await logoutMutation();
           }}
         >
           Logout
@@ -29,8 +29,14 @@ const UserInfo = () => {
           <br />
           User role: <code>{currentUser.role}</code>
         </div>
+
+        <Link href="/receipts">
+          <a className="button small">
+            <strong>Receipts</strong>
+          </a>
+        </Link>
       </>
-    )
+    );
   } else {
     return (
       <>
@@ -45,9 +51,9 @@ const UserInfo = () => {
           </a>
         </Link>
       </>
-    )
+    );
   }
-}
+};
 
 const Home: BlitzPage = () => {
   return (
@@ -110,12 +116,7 @@ const Home: BlitzPage = () => {
           >
             Github Repo
           </a>
-          <a
-            className="button-outline"
-            href="https://slack.blitzjs.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="button-outline" href="https://slack.blitzjs.com" target="_blank" rel="noopener noreferrer">
             Slack Community
           </a>
         </div>
@@ -138,8 +139,8 @@ const Home: BlitzPage = () => {
         body {
           padding: 0;
           margin: 0;
-          font-family: "Libre Franklin", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          font-family: "Libre Franklin", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+            Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         }
 
         * {
@@ -242,8 +243,8 @@ const Home: BlitzPage = () => {
         }
         code {
           font-size: 0.9rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-            Bitstream Vera Sans Mono, Courier New, monospace;
+          font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+            Courier New, monospace;
         }
 
         .grid {
@@ -264,9 +265,9 @@ const Home: BlitzPage = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-Home.getLayout = (page) => <Layout title="Home">{page}</Layout>
+Home.getLayout = (page) => <Layout title="Home">{page}</Layout>;
 
-export default Home
+export default Home;

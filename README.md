@@ -1,15 +1,18 @@
-[![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
+# Strecept
 
-This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
+Stock your receipt.
 
-# **name**
+## Architecture
 
-## Getting Started
+- User 1<->n Receipt
+- Receipt is metadata, It is not recipe
+
+## Development
 
 Run your app in the development mode.
 
 ```
-blitz start
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
