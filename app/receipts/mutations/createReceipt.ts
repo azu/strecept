@@ -5,7 +5,11 @@ type CreateReceiptInput = Pick<ReceiptCreateArgs, "data">;
 export default async function createReceipt({ data }: CreateReceiptInput, ctx: Ctx) {
   ctx.session.authorize();
 
-  const receipt = await db.receipt.create({ data });
+  const receipt = await db.receipt.create({
+    data: {
+      ...data
+    }
+  });
 
   return receipt;
 }
