@@ -1,5 +1,4 @@
-import {Document, Html, DocumentHead, Main, BlitzScript /*DocumentContext*/} from 'blitz'
-
+import { Document, Html, DocumentHead, Main, BlitzScript /*DocumentContext*/ } from "blitz"
 class MyDocument extends Document {
   // Only uncomment if you need to customize this behaviour
   // static async getInitialProps(ctx: DocumentContext) {
@@ -12,8 +11,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <DocumentHead />
         <body>
-          <Main />
-          <BlitzScript />
+        <Main />
+        <BlitzScript />
         </body>
       </Html>
     )
