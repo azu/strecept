@@ -46,4 +46,6 @@ model Receipt {
   url       String
   user      User       @relation(fields: [userId], references: [id])
   userId    Int
+  // { "blurHash": "LKO2?U%2Tw=w]~RBVZRi};RPxuwH" }
+  viewInfo  Json     @default("{\"blurHash\":\"LKO2?U%2Tw=w]~RBVZRi};RPxuwH\"}")
 }

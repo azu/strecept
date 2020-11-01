@@ -17,6 +17,12 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+**Teardown**
+
+```
+npm run db:down
+```
+
 ## Environment Variables
 
 Ensure the `.env.local` file has required environment variables:

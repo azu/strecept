@@ -4,18 +4,19 @@ import { Link, useRouter, useQuery, useMutation, useParam, BlitzPage } from "bli
 import getReceipt from "app/receipts/queries/getReceipt";
 import updateReceipt from "app/receipts/mutations/updateReceipt";
 import ReceiptForm from "app/receipts/components/ReceiptForm";
+import { assertReceipt } from "../../../util/assertReceipt"
+import { View } from "../../../../components/View"
 
 export const EditReceipt = () => {
   const router = useRouter();
   const receiptId = useParam("receiptId", "number");
   const [receipt, { mutate }] = useQuery(getReceipt, { where: { id: receiptId } });
   const [updateReceiptMutation] = useMutation(updateReceipt);
-
+  assertReceipt(receipt);
   return (
     <div>
       <h1>Edit Receipt {receipt.id}</h1>
       <pre>{JSON.stringify(receipt)}</pre>
-
       <ReceiptForm
         initialValues={receipt}
         onSubmit={async (state) => {
@@ -25,10 +26,9 @@ export const EditReceipt = () => {
               data: state,
             });
             await mutate(updated);
-            alert("Success!" + JSON.stringify(updated));
             router.push("/receipts/[receiptId]", `/receipts/${updated.id}`);
           } catch (error) {
-            console.log(error);
+            console.error(error);
             alert("Error creating receipt " + JSON.stringify(error, null, 2));
           }
         }}
@@ -43,12 +43,11 @@ const EditReceiptPage: BlitzPage = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <EditReceipt />
       </Suspense>
-
-      <p>
+      <View>
         <Link href="/receipts">
-          <a>Receipts</a>
+          <a>Back to Receipts</a>
         </Link>
-      </p>
+      </View>
     </div>
   );
 };
