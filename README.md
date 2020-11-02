@@ -5,7 +5,7 @@ Stock your receipt.
 ## Architecture
 
 - User 1<->n Receipt
-- Receipt is metadata, It is not recipe
+- Receipt is metadata. It is not recipe.
 
 ## Development
 
