@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "blitz build",
+    "build": "NODE_ENV=production blitz db migrate && blitz build",
     "db:down": "docker-compose down",
     "db:migrate": "blitz db migrate",
     "db:up": "docker-compose up -d",
